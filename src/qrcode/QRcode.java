@@ -42,7 +42,6 @@ public class QRcode extends Application {
             String data = textField.getText();
             int width = 300;
             int height = 300;
-            String fileType = "png";
             
             BufferedImage bufferedImage = null;
             try {
@@ -50,15 +49,15 @@ public class QRcode extends Application {
                 bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
                 bufferedImage.createGraphics();
                 
-                Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
-                graphics.setColor(Color.WHITE);
-                graphics.fillRect(0, 0, width, height);
-                graphics.setColor(Color.BLACK);
+                Graphics2D image = (Graphics2D) bufferedImage.getGraphics();
+                image.setColor(Color.WHITE);
+                image.fillRect(0, 0, width, height);
+                image.setColor(Color.BLACK);
                 
                 for (int i = 0; i < height; i++) {
                     for (int j = 0; j < width; j++) {
                         if (byteMatrix.get(i, j)) {
-                            graphics.fillRect(i, j, 1, 1);
+                            image.fillRect(i, j, 1, 1);
                         }
                     }
                 }
@@ -66,15 +65,15 @@ public class QRcode extends Application {
                 System.out.println("QR created successfully....");
                 
             } catch (WriterException ex) {
-//                Logger.getLogger(QRcode.class.getName()).log(Level.SEVERE, null, ex);
+                 //Todo
             }
             
-            ImageView qrView = new ImageView();
-            qrView.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
+            ImageView qr = new ImageView();
+            qr.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
             
-            StackPane root1 = new StackPane();
-            root1.getChildren().add(qrView);
-            Scene scene = new Scene(root1, 300, 250);
+            StackPane obj = new StackPane();
+            obj.getChildren().add(qr);
+            Scene scene = new Scene(obj, 300, 250);
             
             primaryStage.setTitle("QRCode");
             primaryStage.setScene(scene);
