@@ -10,4 +10,4 @@
 
 ![code](https://user-images.githubusercontent.com/33368759/50720515-b6f2fe00-10d4-11e9-90fd-1dabef8878df.PNG)
 
-
+[![HitCount](http://hits.dwyl.io/debck/debck/QRcode-generator.svg)](http://hits.dwyl.io/debck/debck/QRcode-generator)
